@@ -643,11 +643,11 @@ class UnitTests extends PHPUnit_Framework_TestCase
                                         null, 0, 100, "instid", null);
         $this->assertEquals("UIS", $insts[0]->instid);
 
-        $insts = UnitTests::$im->search("CB3 0RB", false, false,
+        $insts = UnitTests::$im->search("CB3 0JG", false, false,
                                         "address", 0, 100, null, "phone_numbers");
         $this->assertEquals(1, sizeof($insts));
-        $this->assertEquals("UIS", $insts[0]->instid);
-        $this->assertEquals("34600", $insts[0]->attributes[0]->value);
+        $this->assertEquals("GIRTON", $insts[0]->instid);
+        $this->assertEquals("38999", $insts[0]->attributes[0]->value);
     }
 
     public function testInstSearchCount()
@@ -899,7 +899,7 @@ class UnitTests extends PHPUnit_Framework_TestCase
         $people = UnitTests::$gm->getMembers("cs-editors");
         $directPeople = UnitTests::$gm->getDirectMembers("cs-editors");
 
-        $this->assertTrue(sizeof($people) > 10);
+        $this->assertTrue(sizeof($people) > 5);
         $this->assertTrue(sizeof($group->members) == sizeof($people));
         $this->assertTrue(sizeof($directPeople) <= sizeof($people));
         for ($i=0; $i<sizeof($people); $i++)

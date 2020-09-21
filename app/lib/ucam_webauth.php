@@ -25,10 +25,10 @@
 //
 // $Id: ucam_webauth.php,v 1.3 2013/04/11 21:48:55 jes91 Exp $
 //
-// Version 0.52
+// Version 0.53
 
 namespace WPRavenAuth;
-    
+
 class Ucam_Webauth {
 
   var $PROTOCOL_VERSION = '1';
@@ -381,7 +381,12 @@ class Ucam_Webauth {
   }
 
   function iso2time($t) {
-    return strtotime($t);
+    return gmmktime(substr($t, 9, 2),
+		    substr($t, 11, 2),
+		    substr($t, 13, 2),
+		    substr($t, 4, 2),
+		    substr($t, 6, 2),
+		    substr($t, 0, 4));
   }
 
   function wls_encode($str) {
